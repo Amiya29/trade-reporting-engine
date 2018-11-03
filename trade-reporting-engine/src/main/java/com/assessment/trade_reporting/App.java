@@ -10,10 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.assessment.trade_reporting.model.Trade;
 import com.assessment.trade_reporting.service.InstructionsProvider;
-import com.assessment.trade_reporting.service.ReportingService;
 import com.assessment.trade_reporting.service.TradeBuilder;
+import com.assessment.trade_reporting.service.TradesReportingService;
 import com.assessment.trade_reporting.service.impl.DailyTradeSettlementAmountBasedEntityRankingReportingServiceImpl;
 import com.assessment.trade_reporting.service.impl.DailyTradeSettlementAmountReportingServiceImpl;
 import com.assessment.trade_reporting.service.impl.DummyInstructionsProvider;
@@ -38,7 +37,7 @@ public class App {
     	TradeBuilder tradeBuilder = new TradeBuilderImpl(tradeCalendars);
     	InstructionToTradeConverter converter = new InstructionToTradeConverter(tradeBuilder);
     	
-    	List<ReportingService<Trade>> reportingServices = new ArrayList<>();
+    	List<TradesReportingService> reportingServices = new ArrayList<>();
     	reportingServices.add(new DailyTradeSettlementAmountReportingServiceImpl());
     	reportingServices.add(new DailyTradeSettlementAmountBasedEntityRankingReportingServiceImpl());
     	    	

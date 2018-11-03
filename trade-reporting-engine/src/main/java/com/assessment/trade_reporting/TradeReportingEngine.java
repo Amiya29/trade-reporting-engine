@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.assessment.trade_reporting.model.Instruction;
 import com.assessment.trade_reporting.model.Trade;
 import com.assessment.trade_reporting.service.InstructionsProvider;
-import com.assessment.trade_reporting.service.ReportingService;
+import com.assessment.trade_reporting.service.TradesReportingService;
 
 public class TradeReportingEngine {
 	
@@ -21,10 +21,10 @@ public class TradeReportingEngine {
 	
 	private InstructionsProvider instructionsProvider;
 	private Function<Instruction, Trade> instructionToTradeConverter;
-	private List<ReportingService<Trade>> tradeReportingServices;
+	private List<TradesReportingService> tradeReportingServices;
 	
 	public TradeReportingEngine(InstructionsProvider instructionsProvider,
-			Function<Instruction, Trade> instructionToTradeConverter, List<ReportingService<Trade>> reportingServices) {
+			Function<Instruction, Trade> instructionToTradeConverter, List<TradesReportingService> reportingServices) {
 		this.instructionsProvider = instructionsProvider;
 		this.instructionToTradeConverter = instructionToTradeConverter;
 		

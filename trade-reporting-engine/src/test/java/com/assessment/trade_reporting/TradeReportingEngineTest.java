@@ -1,8 +1,8 @@
 package com.assessment.trade_reporting;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -22,7 +22,7 @@ import org.mockito.MockitoAnnotations;
 import com.assessment.trade_reporting.model.Instruction;
 import com.assessment.trade_reporting.model.Trade;
 import com.assessment.trade_reporting.service.InstructionsProvider;
-import com.assessment.trade_reporting.service.ReportingService;
+import com.assessment.trade_reporting.service.TradesReportingService;
 
 public class TradeReportingEngineTest {
 	
@@ -33,10 +33,10 @@ public class TradeReportingEngineTest {
 	private Function<Instruction, Trade> instructionToTradeConverter;
 	
 	@Mock
-	private ReportingService<Trade> tradeReportingService1;
+	private TradesReportingService tradeReportingService1;
 	
 	@Mock
-	private ReportingService<Trade> tradeReportingService2;
+	private TradesReportingService tradeReportingService2;
 	
 	@Mock
 	private Instruction instruction1;
@@ -94,7 +94,7 @@ public class TradeReportingEngineTest {
 		verify(tradeReportingService2).publishReport(Collections.emptyList());
 	}
 	
-	private void verifyReportingServices(ReportingService<Trade> tradeReportingService) {
+	private void verifyReportingServices(TradesReportingService tradeReportingService) {
 		verify(tradeReportingService).publishReport(tradesCaptor.capture());
 		assertThat(tradesCaptor.getValue(), notNullValue());
 		assertThat(tradesCaptor.getValue(), hasSize(2));

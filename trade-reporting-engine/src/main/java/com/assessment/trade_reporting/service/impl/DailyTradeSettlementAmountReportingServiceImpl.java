@@ -15,10 +15,10 @@ import org.slf4j.LoggerFactory;
 
 import com.assessment.trade_reporting.model.Trade;
 import com.assessment.trade_reporting.model.TradeType;
-import com.assessment.trade_reporting.service.ReportingService;
+import com.assessment.trade_reporting.service.TradesReportingService;
 import com.assessment.trade_reporting.utils.converter.TradeTypeToSettlementTypeConverter;
 
-public class DailyTradeSettlementAmountReportingServiceImpl implements ReportingService<Trade> {
+public class DailyTradeSettlementAmountReportingServiceImpl implements TradesReportingService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(DailyTradeSettlementAmountReportingServiceImpl.class);
 	

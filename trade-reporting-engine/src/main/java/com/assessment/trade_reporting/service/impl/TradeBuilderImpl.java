@@ -27,7 +27,7 @@ public class TradeBuilderImpl implements TradeBuilder {
 	private LocalDate settlementDate;
 	
 	private final Map<String, TradeCalendar> tradeCalendars = new HashMap<>();
-	private final TradeCalendar defaultCalendar = new WorkWeekCalendar(DayOfWeek.MONDAY, DayOfWeek.FRIDAY);
+	private TradeCalendar defaultCalendar = new WorkWeekCalendar(DayOfWeek.MONDAY, DayOfWeek.FRIDAY);
 	
 	/**
 	 * It uses default work week from Monday to Friday
@@ -105,6 +105,11 @@ public class TradeBuilderImpl implements TradeBuilder {
 	public TradeBuilderImpl setSettlementDate(LocalDate settlementDate) {
 		this.settlementDate = settlementDate;
 		return this;
+	}
+	
+	// Package private (for testing purpose only)
+	void setDefaultCalendar(TradeCalendar defaultCalendar) {
+		this.defaultCalendar = defaultCalendar;
 	}
 
 }
